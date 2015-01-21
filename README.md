@@ -6,7 +6,7 @@ A very small pub sub library that whole-heartedly stole all it's ideas (and a go
 
 ##Use with Browserify
 ```javascript
-var events = require('common-js-pub-sub')
+var events = require('common-js-pub-sub')()
 ```
 
 ##Publish to a topic
