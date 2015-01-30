@@ -1,6 +1,6 @@
 {
   "name": "common-js-pub-sub",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A minature library for doing pub-sub in the browser.",
   "main": "index.js",
   "repository": {
