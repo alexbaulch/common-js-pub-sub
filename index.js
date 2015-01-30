@@ -52,9 +52,10 @@ module.exports = function() {
 
         // Cycle through topics queue and call the function!
         var items = topics[topic].queue;
-        items.forEach(function(item) {
-            item(info || {});
-        });
+
+        for (var i = 0; i < items.length; i++) {
+            items[i](info || {})
+        };
     }
 
     return {
