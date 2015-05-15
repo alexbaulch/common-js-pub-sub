@@ -7,8 +7,8 @@
  * @returns { function } events.publish
  * @returns { function } events.subscribe
  */
-module.exports = function() { 
- 
+module.exports = function () {
+
     var topics = {};
 
     /**
@@ -26,14 +26,14 @@ module.exports = function() {
         }
 
         // Add the listener to queue
-        var index = topics[topic].queue.push(listener) -1;
+        var index = topics[topic].queue.push(listener) - 1;
 
         // Provide handle back for removal of topic
         return {
             /**
              * removes the topic from the queue
              */
-            remove: function() {
+            remove: function () {
                 delete topics[topic].queue[index];
             }
         };
@@ -54,12 +54,17 @@ module.exports = function() {
         var items = topics[topic].queue;
 
         for (var i = 0; i < items.length; i++) {
-            items[i](info || {})
-        };
+            if(info === undefined){
+                items[i]()
+            }else{
+                items[i](info)
+            }
+
+        }
     }
 
     return {
         subscribe: subscribe,
         publish: publish
     };
-}
+};
